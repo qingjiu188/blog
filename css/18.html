@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+    <style>
+        /* 未访问过的链接 a:link 把没有访问过的链接选出来*/
+       a:link {
+        color: rgb(75, 118, 247);
+        text-decoration: none;
+       }
+       /* a:visited选择已被访问过的链接 */
+       a:visited {
+        color: brown;
+    }
+       a:hover { 
+        /* 选择鼠标经过的链接 */
+        color: blanchedalmond;
+       }
+       a:active {
+        /* 选择的是鼠标正在点击的链接 还没转页面 */
+        color: orchid;
+       }
+    </style>
+</head>
+<body>
+    <a href="#">判官</a>  
+</body>
+</html>
