@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器</title>
+    <style>
+        ol li {
+            /* 后代选择器 */
+    /* 把ol的儿子li变成grey  */
+            color: grey;
+        }
+        ol li a {
+            color: brown;
+        }
+        .nav li a {
+            color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+ 
+    <ol>
+        <li>ol大儿子</li>
+        <li>ol二儿子</li>
+        <li>ol三儿子</li> 
+        <li><a href="#">ol大孙子</a></li>
+    </ol>
+    <ul>
+        <li>ul大儿子</li>
+        <li>ul二儿子</li>
+        <li>ul三儿子</li>
+        <li><a href="#">加类变化</a></li>
+    </ul>
+</body>
+<ul class="nav">
+    <li>ul大儿子</li>
+    <li>ul二儿子</li>
+    <li>ul三儿子</li>
+    <li><a href="#">加类变化</a></li>
+    <li><a href="#">加类变化</a></li>
+    <li><a href="#">加类变化</a></li>
+</ul>
+</html>
