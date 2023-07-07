@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>伪类选择器-结构伪类</title>
+    <style>
+        /* 选择第一个p（可改，具体看冒号前）这种类型 */
+        /* first可改为last表示选择最后一个 */
+        div>p:first-of-type{
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <span>世界灿烂盛大，欢迎回家</span>
+    <p>秦究</p>
+    <p>游惑</p>
+    <p>021</p>
+    <p>922</p>
+    <p>154</p>
+    <p>1006</p>
+    <p>z</p>
+    <p>系统</p>
+</div>
+</body>
+</html>

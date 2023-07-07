@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器-结构伪类</title>
+    <style>
+        
+        div>p:first-child{
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- 只有第一个文本改变颜色，当第一个文本变为2345文本，那么是2345文本改变 -->
+        <!-- 换言之就是只要它是第一文本，那么不管是哪个，就会改变颜色 -->
+        <p>秦究</p>
+        <p>游惑</p>
+        <p>021</p>
+        <p>922</p>
+        <p>154</p>
+    </div>
+</body>
+</html>
