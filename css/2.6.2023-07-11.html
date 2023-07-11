@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器-否定伪类</title>
+    <style>
+        /* 选择除了mou以外包含在div里面的p标签 */
+        div>p:not(.mou){
+            color: gray;
+        }
+    </style>
+
+</head>
+<body>
+    <p>某某</p>
+    <div>    
+            <p>秦究</p>
+            <p>游惑</p>
+            <p>021</p>
+            <p>922</p>  
+            <p>154</p>
+            <p>1006</p>
+            <p>z</p>
+            <p>世界灿烂盛大，欢迎回家</p>
+            <p class="mou">十七岁那年，那个夏天的蝉鸣比哪一年都要聒噪，教室窗外枝桠疯长，却总也挡不住烈阳。</p>
+            <p class="mou">人间骄阳正好，风过林梢，彼时他们正当年少。</p>
+    </div>  
+</body>
+</html>
