@@ -11,11 +11,22 @@
             width: 100px;
             height: 100px;
         }
+        /* 选用的是被禁用的input元素 */
+        input:disabled{
+            background-color: aquamarine;
+        }
+        input:enabled{
+         /* 选择可以使用的input元素 */
+            background-color: brown;
+        }
     </style>
 </head>
 <body>
     <input type="checkbox">
     <input type="radio" name="gender">
     <input type="radio" name="gender">
+    <input type="text">
+    <input type="text" disabled>
+    <!-- disabled是被禁用的含义 -->
 </body>
 </html>
