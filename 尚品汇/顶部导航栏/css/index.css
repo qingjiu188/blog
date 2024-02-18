@@ -1,0 +1,33 @@
+/* 基础设置 */
+.container {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+/* 顶部导航条 start */
+.topbar {
+    height: 30px;
+    background-color: #ececec; 
+}
+
+.登入区 {
+    height: 30px;
+    line-height: 30px;
+    font-size: 0;
+    color: #666;
+}
+
+.登入区 span,.登入区 a {
+    font-size: 12px;
+}
+
+.dengjin {
+    margin-right: 28px;
+}
+
+.login {
+
+}
+
+
+/* 顶部导航条 end */
