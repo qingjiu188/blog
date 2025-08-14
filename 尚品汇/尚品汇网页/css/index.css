@@ -1,0 +1,85 @@
+/* 基础设置 */
+.container {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+/* #region顶部导航条 start */
+.topbar {
+    height: 30px;
+    background-color: #ececec; 
+}
+
+.登入区 {
+    height: 30px;
+    line-height: 30px;
+    font-size: 0;
+    color: #666;
+}
+
+.登入区 span,.登入区 a {
+    font-size: 12px;
+}
+
+.dengjin {
+    margin-right: 28px;
+}
+ 
+.login {
+      padding-right: 10px;
+      border-right: 1px solid #666;
+}
+
+.register {
+    padding-left: 10px;
+}
+
+.个人区 .列表 {
+    height: 30px;
+    line-height: 30px;
+}
+.个人区 .列表 li {
+    float: left;
+}
+.个人区 .列表 li a {
+    padding: 0 15px;
+    border-right: 1px solid #666;
+}
+
+.个人区 .列表 li:first-child a {
+    padding-left: 0;  
+}
+
+.个人区 .列表 li:last-child a {
+    padding-right: 0;  
+    border: 0;
+}
+
+/* #endregion顶部导航条 end */
+
+/* #region头部 start */
+
+.header {
+    height: 20px;
+}
+
+.header .search form {
+    margin-top: 42px;
+    font-size: 0;
+}
+
+.header .search input {
+    width: 508px;
+    height: 34px;
+    border: 1px solid #dd302d;
+}
+.header .search button {
+    width: 80px;
+    height: 36px;
+    background-color: #dd302d;
+    vertical-align: top;
+    background-image: url('./serch_icon.png');
+    background-repeat: no-repeat;
+    background-position: 28px 6px;
+}
+/* #endregion头部 end */
