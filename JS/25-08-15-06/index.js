@@ -1,8 +1,14 @@
-var arr1; // 数组类型
-arr1 = ['Tom', 'Jerry']; // 正确
-// arr1=[1, 2, 3] // 错误，类型不匹配
-var arr2; // 数组类型 
-arr2 = [1, 2, 3]; // 正确
-// arr2=['Tom', 'Jerry'] // 错误，类型不匹配
-console.log(arr1);
-console.log(arr2);
+var Person = /** @class */ (function () {
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.speak = function (n) {
+        for (var i = 0; i < n; i++) {
+            console.log("My name is ".concat(this.name, ", I am ").concat(this.age, " years old"));
+        }
+    };
+    return Person;
+}());
+var person = new Person("Alice", 30);
+person.speak(3);
