@@ -1,5 +1,7 @@
-var person = {
+const person = {
     name: "李四",
     age: 18,
 };
-console.log("\u6211\u53EB".concat(person.name, "\uFF0C\u4ECA\u5E74").concat(person.age, "\u5C81"));
+console.log(`我叫${person.name}，今年${person.age}岁`);
+export {};
+//# sourceMappingURL=index.js.map

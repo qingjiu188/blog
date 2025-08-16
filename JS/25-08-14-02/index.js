@@ -20,12 +20,12 @@
 // str2=new String("hello")
 // console.log(typeof str1);
 // console.log(typeof str2);
-var a;
+let a;
 a = 99;
 a = false;
 a = 'hello';
 console.log(a);
-var x;
+let x;
 // 第一种使用类型保护来确保 a 是 string 类型
 if (typeof a === 'string') {
     x = a; // 只有当 a 是 string 时，才可以赋值给 x
@@ -37,3 +37,5 @@ x = a; // 另一种类型断言的语法
 function demo() {
     throw new Error("This function never returns");
 }
+export {};
+//# sourceMappingURL=index.js.map

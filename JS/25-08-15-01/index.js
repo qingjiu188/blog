@@ -1,3 +1,10 @@
+var Direction;
+(function (Direction) {
+    Direction[Direction["UP"] = 0] = "UP";
+    Direction[Direction["DOWN"] = 1] = "DOWN";
+    Direction[Direction["LEFT"] = 2] = "LEFT";
+    Direction[Direction["RIGHT"] = 3] = "RIGHT";
+})(Direction || (Direction = {}));
 // function walk(date: Direction) {
 //     if (date === Direction.UP) {
 //         console.log("Walking up");
@@ -11,4 +18,6 @@
 // }
 // console.log(Direction.UP); // Output: 0
 // console.log(Direction[0]); // Output: UP
-console.log(0 /* Direction.UP */);
+console.log(Direction.UP);
+export {};
+//# sourceMappingURL=index.js.map
