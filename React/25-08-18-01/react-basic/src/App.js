@@ -1,35 +1,42 @@
+// // 定义组件
+// function Button() {
+//   //组件逻辑
+//   return <button>click me!</button>
+// }
+
+
+// function App() {
+//   return (
+//     <div className="App">
+//       {/* 使用组件 */}
+//       {/* 自闭和 */}
+//       <Button />
+//       {/* 成对 */}
+//       <Button></Button>
+//     </div>
+//   );
+// }
+
+
+//箭头函数的写法
+// 定义组件
+const Button = () => {
+  //组件逻辑
+  return <button>click me!</button>
+}
+
 
 function App() {
-  // 事件参数e
-  // const handleClick = (e) => {
-  //   console.log('按钮被点击了',e);
-  // };
-
-  //   return (
-  //   <div className="App">
-  //     <button onClick={handleClick}>点击我</button>
-  //   </div>
-  // );
-
-  // 传送自定义参数
-  // const handleClick = (name) => {
-  //   console.log('按钮被点击了',name);
-  // };
-  // return (
-  //   <div className="App">
-  //     <button onClick={() => handleClick('jack')}>点击我</button>
-  //   </div>
-  // );
-
-// 既要传递自定义的参数，也需要事件对象e
-  const handleClick = (name,e) => {
-    console.log('按钮被点击了',name,e);
-  };
   return (
     <div className="App">
-      <button onClick={(e) => handleClick('jack',e)}>点击我</button>
+      {/* 使用组件 */}
+      {/* 自闭和 */}
+      <Button />
+      {/* 成对 */}
+      <Button></Button>
     </div>
   );
 }
+
 
 export default App;
