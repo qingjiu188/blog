@@ -1,24 +1,33 @@
-//定义文章类型
-
-const articleType = 1   //0,1,3
-
-//定义核心函数（根据文章类型返回不同的JSX模板）
-
-function getArticleTem() {
-  if (articleType === 0) {
-    return <div>文章类型为0的模板</div>;
-  } else if (articleType === 1) {
-    return <div>文章类型为1的模板</div>;
-  } else {
-    return <div>文章类型为3的模板</div>;
-  }
-}
 
 function App() {
+  // 事件参数e
+  // const handleClick = (e) => {
+  //   console.log('按钮被点击了',e);
+  // };
+
+  //   return (
+  //   <div className="App">
+  //     <button onClick={handleClick}>点击我</button>
+  //   </div>
+  // );
+
+  // 传送自定义参数
+  // const handleClick = (name) => {
+  //   console.log('按钮被点击了',name);
+  // };
+  // return (
+  //   <div className="App">
+  //     <button onClick={() => handleClick('jack')}>点击我</button>
+  //   </div>
+  // );
+
+// 既要传递自定义的参数，也需要事件对象e
+  const handleClick = (name,e) => {
+    console.log('按钮被点击了',name,e);
+  };
   return (
     <div className="App">
-      {/* 调用函数渲染不同的模板 */}
-      {getArticleTem()}
+      <button onClick={(e) => handleClick('jack',e)}>点击我</button>
     </div>
   );
 }
