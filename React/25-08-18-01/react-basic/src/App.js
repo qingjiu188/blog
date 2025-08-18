@@ -11,9 +11,20 @@ function App() {
 
     setCount(count+1)
   }
+
+  //修改对象状态
+  const [form,setForm] = useState({name:'jack'})
+  const changeForm = () =>{
+    setForm({
+      ...form,
+      name:'john'
+    })
+  }
+
     return (
     <div className="App">
       <button onClick={handldClick}>{count}</button>
+    <button onClick={changeForm}>修改form{form.name}</button>
     </div>
   );
 }
