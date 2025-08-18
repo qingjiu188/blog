@@ -43,8 +43,6 @@
 
 
     //手动添加项
-    "experimentalDecorators": true,
-    // "declarationDir": "false",
-    // "removeComments": false
+    "experimentalDecorators": true
   }
 }
