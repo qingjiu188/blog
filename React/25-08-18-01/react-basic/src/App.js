@@ -1,24 +1,25 @@
-import { useEffect, useState } from "react";
-const URL ='http://geek.itheima.net/v1_0/channels'
+import { use, useEffect, useState } from "react";
+
 function App() {
-  //创建一个状态数据
-  const [list,setList] = useState([])
-  useEffect(()=>{
-    //额外操作 获取频道列表
-    async function getList (){
-      const res = await fetch(URL)
-      const jsonRes = await res.json()
-      console.log(jsonRes)
-      setList(jsonRes.data.channels)
-    }
-    getList()
-  },[])
-    return (
+  //没有依赖项 初始+组件更新
+  const [count, setCount] = useState(0)
+  // useEffect(()=>{
+  //   console.log('副作用函数执行了')
+  // })
+
+  //传入空数组依赖  初始执行一次
+  // useEffect(()=>{
+  //   console.log('副作用函数执行了')
+  // },[])
+
+  //传入特定依赖项 初始+依赖项变化时执行
+  useEffect(() => {
+    console.log('副作用函数执行了')
+  }, [count])
+  return (
     <div>
-      this is App
-      <ul>
-        {list.map(item => <li key={item.id}>{item.name}</li>)}
-      </ul>
+      this is app
+      <button onClick={() => setCount(count + 1)}>+{count}</button>
     </div>
   );
 }
