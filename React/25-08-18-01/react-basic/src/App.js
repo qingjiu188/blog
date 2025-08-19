@@ -1,30 +1,18 @@
-import { useState } from "react";
+//导入样式（index.css）
+import './index.css'
+
+const style ={
+  color:'red',
+  fontSize:'50px'
+}
 
 function App() {
-  let [count,setCount] = useState(0)
-
-  const handldClick = () => {
-
-    //直接修改不能引发视图更新
-    // count++
-    // console.log(count)
-
-    setCount(count+1)
-  }
-
-  //修改对象状态
-  const [form,setForm] = useState({name:'jack'})
-  const changeForm = () =>{
-    setForm({
-      ...form,
-      name:'john'
-    })
-  }
-
     return (
     <div className="App">
-      <button onClick={handldClick}>{count}</button>
-    <button onClick={changeForm}>修改form{form.name}</button>
+      {/* 行内样式控制 */}
+      <span style={style}>this is span</span>
+      {/* 通过class类名控制 */}
+      <span className="foo">this is class foo</span>
     </div>
   );
 }
