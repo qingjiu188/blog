@@ -1,18 +1,19 @@
-//导入样式（index.css）
-import './index.css'
+// 受控绑定表单
+//1.声明一个react状态 ————useState
+//2.核心绑定流程
+//   1.通过value属性绑定react状态
 
-const style ={
-  color:'red',
-  fontSize:'50px'
-}
+import { useState } from "react";
 
+//   2.绑定onChange事件，通过事件参数e拿到输入框最新的值 反向修改到react状态中
 function App() {
+  const [value,setValue] = useState('')
     return (
-    <div className="App">
-      {/* 行内样式控制 */}
-      <span style={style}>this is span</span>
-      {/* 通过class类名控制 */}
-      <span className="foo">this is class foo</span>
+    <div>
+      <input
+      value={value}
+      onChange={(e)=>setValue(e.target.value)}
+       type="text"></input>
     </div>
   );
 }
