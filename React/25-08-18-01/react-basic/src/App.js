@@ -1,18 +1,17 @@
-//react中获取dom
- import {useRef} from "react"
-//1.useref生成ref对象 绑定到dom标签身上
+//父传子
+//父组件传递数据，子组件标签身上绑定属性
+//子组件接收数据 props的参数
 
-//2.dom可用时，ref.current获取dom
-//渲染完毕后 dom生成之后才可以用的
+function Son(props) {
+  console.log(props)
+  return<div>this is son,{props.name}</div>
+}
+
 function App() {
-  const inputRef = useRef(null)
-  const showDom =() =>{
-    console.dir(inputRef.current)
-  }
+  const name='this is app name'
     return (
     <div>
-  <input type="text" ref={inputRef} />
-  <button onClick={showDom}>获取dom</button>
+      <Son name={name}/>
     </div>
   );
 }
