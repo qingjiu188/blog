@@ -1,26 +1,28 @@
-import { use, useEffect, useState } from "react";
+import {useEffect, useState } from "react";
+
+function Son () {
+  //渲染时开启一个定时器
+  useEffect(()=>{
+    const timer = setInterval(()=>{
+      console.log('定时器执行中...')
+    },1000)
+
+    return () => {
+      //清除副作用
+      clearInterval(timer)
+    }
+  },[])
+  return <div>this is son</div>
+}
 
 function App() {
-  //没有依赖项 初始+组件更新
-  const [count, setCount] = useState(0)
-  // useEffect(()=>{
-  //   console.log('副作用函数执行了')
-  // })
-
-  //传入空数组依赖  初始执行一次
-  // useEffect(()=>{
-  //   console.log('副作用函数执行了')
-  // },[])
-
-  //传入特定依赖项 初始+依赖项变化时执行
-  useEffect(() => {
-    console.log('副作用函数执行了')
-  }, [count])
+  //通过条件渲染模拟组件卸载
+  const [show, setShow] = useState(true)
   return (
     <div>
-      this is app
-      <button onClick={() => setCount(count + 1)}>+{count}</button>
+      {show && <Son />}
+      <button onClick={() => setShow(false)}>卸载Son组件</button>
     </div>
-  );
+  )
 }
 export default App;
