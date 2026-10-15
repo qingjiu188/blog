@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>倾酒 · 作品集</title>
+<meta name="description" content="倾酒的个人作品集 — 前端项目展示">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #f7f7f5;
+    --text: #1a1a1a;
+    --text-2: #555555;
+    --text-3: #999999;
+    --line: #e8e8e6;
+    --accent: #003366;
+    --accent-soft: #eef3f8;
+    --radius: 10px;
+    --max: 720px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--accent); color: #fff; }
+
+  /* ---------- 导航 ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .inner {
+    max-width: var(--max); margin: 0 auto; padding: 0 24px;
+    height: 56px; display: flex; align-items: center; justify-content: space-between;
+  }
+  nav .logo { font-weight: 600; font-size: 15px; letter-spacing: .5px; }
+  nav .links { display: flex; gap: 28px; font-size: 13.5px; color: var(--text-2); }
+  nav .links a { transition: color .2s; }
+  nav .links a:hover { color: var(--accent); }
+
+  main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 168px 0 88px; }
+  .hero .hi {
+    font-size: 13px; color: var(--accent); font-weight: 500;
+    letter-spacing: 2px; margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 44px; font-weight: 700; letter-spacing: -0.5px;
+    line-height: 1.25; margin-bottom: 18px;
+  }
+  .hero .sub {
+    font-size: 16px; color: var(--text-2); max-width: 560px;
+  }
+
+  /* ---------- 区块通用 ---------- */
+  section { padding: 72px 0; border-top: 1px solid var(--line); }
+  .sec-title {
+    font-size: 12px; font-weight: 600; color: var(--text-3);
+    letter-spacing: 3px; text-transform: uppercase; margin-bottom: 36px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .sec-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  /* ---------- 技能 ---------- */
+  .skills ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+  .skills li {
+    font-size: 13.5px; padding: 7px 16px;
+    background: var(--accent-soft); color: var(--accent);
+    border-radius: 999px; font-weight: 500;
+  }
+  .skills .plain { background: var(--bg-soft); color: var(--text-2); }
+
+  /* ---------- 项目 ---------- */
+  .project { padding: 34px 0; border-bottom: 1px solid var(--line); }
+  .project:last-child { border-bottom: none; }
+  .project .head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+  .project h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.2px; }
+  .project h3 small { font-size: 13px; color: var(--text-3); font-weight: 400; margin-left: 10px; }
+  .project .year { font-size: 12.5px; color: var(--text-3); white-space: nowrap; }
+  .project .desc { font-size: 14.5px; color: var(--text-2); margin: 10px 0 14px; max-width: 620px; }
+  .project .stack { display: flex; flex-wrap: wrap; gap: 8px; }
+  .project .stack span {
+    font-size: 12px; color: var(--text-2);
+    border: 1px solid var(--line); border-radius: 6px; padding: 3px 10px;
+  }
+  .project .points { margin-top: 14px; list-style: none; }
+  .project .points li {
+    font-size: 13.5px; color: var(--text-2); padding-left: 16px;
+    position: relative; margin-bottom: 4px;
+  }
+  .project .points li::before {
+    content: ""; position: absolute; left: 0; top: 11px;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+    opacity: .5;
+  }
+  .project .actions { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500; padding: 8px 18px;
+    border-radius: 999px; transition: all .2s ease;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #00478f; transform: translateY(-1px); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--text-2); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+  .btn .arrow { font-size: 12px; }
+
+  /* ---------- 随笔 ---------- */
+  .posts article { padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .posts article:last-child { border-bottom: none; }
+  .posts h4 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .posts time { font-size: 12.5px; color: var(--text-3); }
+  .posts p { font-size: 14px; color: var(--text-2); margin-top: 8px; }
+
+  /* ---------- 联系 ---------- */
+  .contact p { font-size: 15px; color: var(--text-2); margin-bottom: 24px; }
+  .contact a {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius);
+    margin-bottom: 12px; transition: border-color .2s, transform .2s;
+  }
+  .contact a:hover { border-color: var(--accent); transform: translateX(4px); }
+  .contact a b { font-size: 14px; font-weight: 500; }
+  .contact a span { font-size: 13px; color: var(--text-3); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 40px 24px 56px; text-align: center;
+    font-size: 12.5px; color: var(--text-3);
+  }
+
+  /* ---------- 入场动画 ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 128px 0 64px; }
+    .hero h1 { font-size: 32px; }
+    nav .links { gap: 18px; font-size: 12.5px; }
+    section { padding: 56px 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a class="logo" href="#top">倾酒</a>
+    <div class="links">
+      <a href="#projects">项目</a>
+      <a href="#posts">随笔</a>
+      <a href="#contact">联系</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- Hero -->
+  <header class="hero reveal">
+    <p class="hi">QINGJIU'S PORTFOLIO</p>
+    <h1>你好，我是倾酒。<br>这里是我做的一些东西。</h1>
+    <p class="sub">喜欢前端，喜欢把想法变成能点开、能玩的网页。下面四个项目都可以直接在线体验，源码全部公开在 GitHub。</p>
+  </header>
+
+  <!-- 技能 -->
+  <section id="skills" class="skills reveal">
+    <h2 class="sec-title">Skills · 技术栈</h2>
+    <ul>
+      <li>HTML5 / CSS3</li>
+      <li>JavaScript (ES6+)</li>
+      <li>Vue 3</li>
+      <li>Bootstrap 4</li>
+      <li>响应式设计</li>
+      <li class="plain">Next.js 15 / React</li>
+      <li class="plain">Tailwind CSS</li>
+      <li class="plain">TypeScript</li>
+      <li class="plain">Prisma / MySQL</li>
+      <li class="plain">微信小程序云开发</li>
+      <li class="plain">Canvas 动效</li>
+      <li class="plain">Git / Vercel 部署</li>
+    </ul>
+  </section>
+
+  <!-- 项目 -->
+  <section id="projects" class="reveal">
+    <h2 class="sec-title">Projects · 项目作品</h2>
+
+    <article class="project">
+      <div class="head">
+        <h3>副本 / INSTANCE<small>暗黑悬疑文字剧本杀</small></h3>
+        <span class="year">Next.js 全栈</span>
+      </div>
+      <p class="desc">状态机驱动 + LLM 对话流 + 数据库持久化 + 社区社交的文字剧本杀。玩家行动由服务端 LLM 调度生成剧情，支持注册登录、唯一身份分发、副本闯关与论坛社交。</p>
+      <ul class="points">
+        <li>Next.js 15 + TypeScript + Tailwind + Framer Motion，Auth.js 认证，Prisma + MySQL 双模数据层（无库自动降级 JSON）</li>
+        <li>账号层 / 角色层解耦设计：角色死亡物理删除档案，社交资产完整保留</li>
+        <li>自研标签解析器渲染 LLM 输出，原生 Canvas 实现彗星拖尾 + 冲击波粒子背景</li>
+      </ul>
+      <div class="stack">
+        <span>Next.js 15</span><span>TypeScript</span><span>Prisma</span><span>MySQL</span><span>Auth.js</span><span>Zustand</span><span>Canvas</span>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://instance-329356-12-1379425144.sh.run.tcloudbase.com/" target="_blank" rel="noopener">在线体验 <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="https://github.com/qingjiu188/Jubensha-game" target="_blank" rel="noopener">查看源码 <span class="arrow">→</span></a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="head">
+        <h3>模拟人生<small>治愈系 AI 角色互动小说</small></h3>
+        <span class="year">纯静态 · 零依赖</span>
+      </div>
+      <p class="desc">把对话写成小说的互动阅读网站：输入动作或台词，自动润色成 2000–5000 字的完整章节，同时维护角色关系数值、心绪与跨章记忆，可一键接入真实大模型。</p>
+      <ul class="points">
+        <li>纯静态零构建：双击 index.html 即可运行，也可挂在任意静态服务器</li>
+        <li>自研小说生成引擎：语料库 + 16 拍节奏模板 + 相似度查重</li>
+        <li>双层生成架构：真实大模型与本地引擎共用一份 JSON 协议，失败自动回落</li>
+      </ul>
+      <div class="stack">
+        <span>原生 JavaScript</span><span>CSS3</span><span>localStorage</span><span>LLM API 接入</span><span>毛玻璃 UI</span>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://qingjiu188.github.io/wen-game/" target="_blank" rel="noopener">在线体验 <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="https://github.com/qingjiu188/wen-game" target="_blank" rel="noopener">查看源码 <span class="arrow">→</span></a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="head">
+        <h3>zxy 的模拟人生<small>深空科幻主题多页应用</small></h3>
+        <span class="year">MPA · 视觉向</span>
+      </div>
+      <p class="desc">深空粒子背景 + 玻璃拟态 + 星际穿越式转场的多页应用。包含登录守卫、卡片网格、主题换肤的文章阅读系统，四种主题自动切换粒子配色与运动方式。</p>
+      <ul class="points">
+        <li>Canvas 2D 发光粒子系统：鼠标追随 / 点击冲击波 / 曲速隧道，自适应 DPR</li>
+        <li>数据驱动渲染：新增文章只改一个数组，卡片与主题换肤全自动</li>
+        <li>动画全部走 transform / opacity 合成层，支持 prefers-reduced-motion</li>
+      </ul>
+      <div class="stack">
+        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Canvas 2D</span><span>Web Animations API</span>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://qingjiu188.github.io/zxy-game/" target="_blank" rel="noopener">在线体验 <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="https://github.com/qingjiu188/zxy-game" target="_blank" rel="noopener">查看源码 <span class="arrow">→</span></a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="head">
+        <h3>时绘抽卡系统<small>网页版抽卡模拟器</small></h3>
+        <span class="year">网页小游戏</span>
+      </div>
+      <p class="desc">基于《时空中的绘旅人》的网页抽卡模拟器：1 个常驻池 + 32 个限定池，完整还原保底机制、十连必出 SR、抽卡记录分页与 3D 翻牌特效。</p>
+      <ul class="points">
+        <li>保底计数器算法：80 抽保底 SSR、160 抽必出限定，各池数据独立</li>
+        <li>CSS preserve-3d 实现真实翻牌动画与 SSR 光晕呼吸灯</li>
+        <li>localStorage 持久化抽卡档案，响应式适配移动端</li>
+      </ul>
+      <div class="stack">
+        <span>HTML5</span><span>CSS3 动画</span><span>JavaScript ES6+</span><span>localStorage</span><span>响应式</span>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://qingjiu188.github.io/game/" target="_blank" rel="noopener">在线体验 <span class="arrow">→</span></a>
+        <a class="btn btn-ghost" href="https://github.com/qingjiu188/game" target="_blank" rel="noopener">查看源码 <span class="arrow">→</span></a>
+      </div>
+    </article>
+  </section>
+
+  <!-- 随笔 -->
+  <section id="posts" class="posts reveal">
+    <h2 class="sec-title">Notes · 开发随笔</h2>
+    <article>
+      <h4>为什么我用原生 Canvas 而不是粒子库</h4>
+      <time>副本 / INSTANCE</time>
+      <p>冲击波需要逐粒子施加初速度、逐帧阻尼回落、结局模式热切换——这些必须拿到粒子实例才能精确控制，顺带省掉一个依赖。</p>
+    </article>
+    <article>
+      <h4>让 AI 生成的小说不像聊天：一份 JSON 协议的好处</h4>
+      <time>模拟人生</time>
+      <p>上层只认固定 JSON 结构，真实大模型和本地引擎可以无缝互换，接口失败自动回落，界面逻辑一行都不用改。</p>
+    </article>
+    <article>
+      <h4>数据驱动渲染：新增内容只改一个数组</h4>
+      <time>zxy 的模拟人生</time>
+      <p>卡片、文章页、主题换肤全部由 stories 数组自动生成，加一篇新文章不需要碰 HTML 和 CSS。</p>
+    </article>
+  </section>
+
+  <!-- 联系 -->
+  <section id="contact" class="contact reveal">
+    <h2 class="sec-title">Contact · 联系</h2>
+    <p>如果你对这些项目感兴趣，欢迎来找我聊聊。</p>
+    <a href="mailto:qingjiu4@qq.com"><b>邮箱</b><span>qingjiu4@qq.com</span></a>
+    <a href="https://github.com/qingjiu188" target="_blank" rel="noopener"><b>GitHub</b><span>github.com/qingjiu188</span></a>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 倾酒 · Made with ♥</p>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
